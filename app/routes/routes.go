@@ -4,7 +4,7 @@ import (
 	"NewBEUjian/app/controllers"
 	"NewBEUjian/pkg/middleware"
 	"NewBEUjian/pkg/tools"
-	"NewBEUjian/public"
+
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/monitor"
@@ -89,19 +89,19 @@ func SetupRoutesFiber(app *fiber.App) {
 
 	//static file
 
-	app.Get("/public/ijazah-terakhir/:filename", public.PublicIjazah)
-	app.Get("/public/sertifikat-keahlian/:filename", public.PublicSertifikatKeahlian)
-	app.Get("/public/sertifikat-6.09/:filename", public.PublicSertifikatTot)
-	app.Get("/public/sertifikat-3.12/:filename", public.PublicSertifikatToe)
-	app.Get("/public/sertifikat-6.10/:filename", public.PublicSertifikatToeSimulator)
-	app.Get("/public/sertifikat-auditor/:filename", public.PublicSertifikatAuditor)
-	app.Get("/public/sertifikat-keterampilan-lain/:filename", public.PublicSertifikatLainnya)
-	app.Get("/public/buku-pelaut/:filename", public.PublicBukuPelaut)
-	app.Get("/public/foto/:filename", public.PublicFoto)
-	app.Get("/public/file-permohonan/:filename", public.PublicFilePermohonan)
-	app.Get("/public/soal-pelatihan/:filename", public.PublicFileGambarSoal)
-	app.Get("/public/bank-soal/atkapin/:filename", public.PublicFileAtkapin)
-	app.Get("/public/bank-soal/ankapin/:filename", public.PublicFileNameSoalAnkapin)
+	app.Get("/public/ijazah-terakhir/:filename", tools.PublicIjazah)
+	app.Get("/public/sertifikat-keahlian/:filename", tools.PublicSertifikatKeahlian)
+	app.Get("/public/sertifikat-6.09/:filename", tools.PublicSertifikatTot)
+	app.Get("/public/sertifikat-3.12/:filename", tools.PublicSertifikatToe)
+	app.Get("/public/sertifikat-6.10/:filename", tools.PublicSertifikatToeSimulator)
+	app.Get("/public/sertifikat-auditor/:filename", tools.PublicSertifikatAuditor)
+	app.Get("/public/sertifikat-keterampilan-lain/:filename", tools.PublicSertifikatLainnya)
+	app.Get("/public/buku-pelaut/:filename", tools.PublicBukuPelaut)
+	app.Get("/public/foto/:filename", tools.PublicFoto)
+	app.Get("/public/file-permohonan/:filename", tools.PublicFilePermohonan)
+	app.Get("/public/soal-pelatihan/:filename", tools.PublicFileGambarSoal)
+	app.Get("/public/bank-soal/atkapin/:filename", tools.PublicFileAtkapin)
+	app.Get("/public/bank-soal/ankapin/:filename", tools.PublicFileNameSoalAnkapin)
 
 	//Form DPAKP
 	app.Post("/exportPesertaPelatihan", middleware.JwtProtect(), controllers.ExportPesertaPelatihan)  // done
