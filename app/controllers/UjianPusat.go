@@ -42,22 +42,23 @@ func CreateUjian(c *fiber.Ctx) error {
 	}
 
 	ujianNew := entity.Ujian{
-		IdTypeUjian:          request.IdTypeUjian,          // Use `request.IdTypeUjian` instead of `data`
-		TypeUjian:            request.TypeUjian,            // Use `request.TypeUjian`
-		NamaUjian:            request.NamaUjian,            // Use `request.NamaUjian`
-		TempatUjian:          request.TempatUjian,  
-		LembagaDiklat    : request.LembagaDiklat,        // Use `request.TempatUjian`
-	              // Use `request.PUKAKP`
+		IdTypeUjian:   request.IdTypeUjian, // Use `request.IdTypeUjian` instead of `data`
+		TypeUjian:     request.TypeUjian,   // Use `request.TypeUjian`
+		NamaUjian:     request.NamaUjian,   // Use `request.NamaUjian`
+		TempatUjian:   request.TempatUjian,
+		IdLemdikat:    request.IdLemdikat,
+		LembagaDiklat: request.LembagaDiklat, // Use `request.TempatUjian`
+		// Use `request.PUKAKP`
 		NamaPengawasUjian:    request.NamaPengawasUjian,    // Use `request.NamaPengawas`
 		NamaVasilitatorUjian: request.NamaVasilitatorUjian, // Use `request.NamaVasilitator`
 		TanggalMulaiUjian:    request.TanggalMulaiUjian,    // Use `request.TanggalMulai`
 		TanggalBerakhirUjian: request.TanggalBerakhirUjian, // Use `request.TanggalBerakhir`
 		WaktuUjian:           request.WaktuUjian,           // Convert string to int (WaktuUjian)
 		JumlahPesertaUjian:   request.JumlahPesertaUjian,   // Convert string to int (JumlahPeserta)
-		Status:               request.Status,               // Use `request.Status`
+		Status:               "Pending",                    // Use `request.Status`
 		CreateAt:             tools.TimeNowJakarta(),
 		FilePermohonan:       tools.RemoverSpaci(filePermohonan.Filename),
-		IsSematkan: "false", // Set current time in Jakarta timezone
+		IsSematkan:           "false", // Set current time in Jakarta timezone
 	}
 
 	if err := database.DB.Create(&ujianNew).Error; err != nil {
@@ -113,21 +114,21 @@ func UpdateUjian(c *fiber.Ctx) error {
 	// Prepare the updated Ujian data
 	newUpdate := entity.Ujian{
 
-       // Use `request.TypeUjian`
-		NamaUjian:            request["nama_ujian"],            // Use `request.NamaUjian`
-		TempatUjian:          request["tempat_ujian"],  
+		// Use `request.TypeUjian`
+		NamaUjian:   request["nama_ujian"], // Use `request.NamaUjian`
+		TempatUjian: request["tempat_ujian"],
 
-		TanggalMulaiUjian:    request["tanggal_mulai_ujian"],    // Use `request.TanggalMulai`
-		TanggalBerakhirUjian: request["tanggal_berakhir_ujian"], // Use `request.TanggalBerakhir`
-		WaktuUjian:           request["waktu_ujian"],           // Convert string to int (WaktuUjian)
-		JumlahPesertaUjian:   tools.StringToInt(request["jumlah_peserta_ujian"]),   // Convert string to int (JumlahPeserta)
+		TanggalMulaiUjian:    request["tanggal_mulai_ujian"],                     // Use `request.TanggalMulai`
+		TanggalBerakhirUjian: request["tanggal_berakhir_ujian"],                  // Use `request.TanggalBerakhir`
+		WaktuUjian:           request["waktu_ujian"],                             // Convert string to int (WaktuUjian)
+		JumlahPesertaUjian:   tools.StringToInt(request["jumlah_peserta_ujian"]), // Convert string to int (JumlahPeserta)
 
 		NamaPengawasUjian:    request["nama_pengawas_ujian"],
-		IsSematkan:  request["is_sematkan"],
+		IsSematkan:           request["is_sematkan"],
 		NamaVasilitatorUjian: request["nama_vasilitator_ujian"],
-		
-		Status:               request["status"],      // Use the existing create time
-		UpdateAt:             tools.TimeNowJakarta(), // Set current time for update
+
+		Status:   request["status"],      // Use the existing create time
+		UpdateAt: tools.TimeNowJakarta(), // Set current time for update
 	}
 
 	// Update the record with new values

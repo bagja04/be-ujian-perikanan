@@ -7,6 +7,7 @@ type Ujian struct {
 	TypeUjian         string
 	NamaUjian         string //Judul Pelatihan
 	TempatUjian       string
+	IdLemdikat uint  //
 	LembagaDiklat            string
 	NamaPengawasUjian string
 	//Ankapin atau Atkapin
@@ -20,6 +21,9 @@ type Ujian struct {
 	UpdateAt             string
 	FilePermohonan       string
 	IsSematkan string
+	LinkZoom string
+	ZoometingId string
+	ZoometingPassCode string
 	//Waktu ujian 
 	UsersUjian []UsersUjian `gorm:"foreignKey:IdUjian;constraint:OnDelete:CASCADE"`
 	// Explicit foreign key reference

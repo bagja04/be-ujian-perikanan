@@ -91,7 +91,7 @@ func GetTypeUjian(c *fiber.Ctx) error {
 		// Jika ada kesalahan, kirim pesan kesalahan
 		return c.Status(fiber.StatusBadRequest).JSON(err)
 	}
-
+			
 	id := c.Query("id")
 
 	var data []entity.TypeUjian

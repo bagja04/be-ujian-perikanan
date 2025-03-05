@@ -37,6 +37,7 @@ type UsersUjian struct {
 	IdUjian                uint
 	IdCodeAksesUsersBagian uint
 	Nilai              int
+	NilaiPraktek int
 	StatusLulus            string
 	CreteAt                string
 	Status                 string

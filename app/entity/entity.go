@@ -40,3 +40,9 @@ type AdminPusat struct {
 	Status       string
 	Role string
 }
+
+type Pengeguji struct{
+	IdPenguji string
+}
+
+

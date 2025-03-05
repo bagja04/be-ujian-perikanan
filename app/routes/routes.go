@@ -24,6 +24,7 @@ func SetupRoutesFiber(app *fiber.App) {
 	lemdik := app.Group("/lemdik")
 
 	adminPusat := app.Group("/adminPusat")
+	//pengeguji := app.Group("/pengeguji")
 
 
 	//adminPusat := app.Group("/adminpusat")
@@ -34,14 +35,9 @@ func SetupRoutesFiber(app *fiber.App) {
 
 	//Type Ujian Area
 	adminPusat.Post("/createTypeUjian", middleware.JwtProtect(), controllers.CreateTypeUjian)
+	//adminPusat.Update("/updateUjian", middleware.JwtProtect(), controllers.Update)
 	adminPusat.Get("/getTypeUjian", middleware.JwtProtect(), controllers.GetTypeUjian)
 	adminPusat.Delete("/deleteUjian", middleware.JwtProtect(), controllers.DeleteTypeUjian)
-
-	//Fungsi Ujian
-
-	//User Post Add Pelatihan
-
-	//Users Add Ujikom
 
 	//lemdik Area
 	lemdik.Post("/login", controllers.LoginLemdik)
@@ -57,7 +53,7 @@ func SetupRoutesFiber(app *fiber.App) {
 	adminPusat.Delete("/deleteUjians", middleware.JwtProtect(), controllers.DeleteUjians)
 	//Soal Post Test dan Pretase
 	adminPusat.Post("/AddSoalToUsers", middleware.JwtProtect(), controllers.AddSoalToUsersNew)                         //AddSoalToUsersNewBagianSuffle
- //AddSoalToUsersNewBagianSuffle
+ 	//AddSoalToUsersNewBagianSuffle
 
 	//lemdik.Get("/GetSoalPelatihanById", middleware.JwtProtect(), controllers.GetSoalPelatihanByLemdik)
 	//lemdik.Get("/GetPertanyaanRandom", middleware.JwtProtect(), controllers.GetPertanyaanRandom)
