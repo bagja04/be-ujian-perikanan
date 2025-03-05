@@ -107,7 +107,7 @@ func GetLemdik(c *fiber.Ctx) error {
 	role, _ := c.Locals("role").(string)
 	names, _ := c.Locals("name").(string)
 
-	if err := tools.ValidationJwt(c, role, id_admin, names); err != nil {
+	if err := tools.ValidationJwtLemdik(c, role, id_admin, names); err != nil {
 		// Jika ada kesalahan, kirim pesan kesalahan
 		return c.Status(fiber.StatusBadRequest).JSON(err)
 	}
