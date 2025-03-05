@@ -7,7 +7,7 @@ import (
 )
 
 func ValidationJwt(c *fiber.Ctx, role string, id_admin int, names string) *fiber.Map {
-	if role != "1" && role != "99" {
+	if role != "1" && role != "99"  && role != "2"{
 
 		fmt.Println("TerEksekusi")
 		return &fiber.Map{

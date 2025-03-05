@@ -38,7 +38,7 @@ func GenerateToken(entitys interface{}) string {
 	case entity.Lemdiklat:
 		name = e.NamaLemdik
 		idAdmin = float64(int(e.IdLemdik))
-		role = IntToString(roleLemdiklat)
+		role = "2"
 		types = "Lemdiklat"
 
 	default:
